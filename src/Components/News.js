@@ -4,43 +4,47 @@ import PropTypes from "prop-types";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 const News = (props) => {
-  // document.title = `${capitalizeFirstLetter(props.category)} | NewsApp`;
   const capitalizeFirstLetter = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
   };
 
-  const [articles, setArticles] = useState([]);
+  const [articles, setArticles] = useState([]); //array [] symbol was missing
   const [page, setPage] = useState(1);
-  const [totalResults, setTotalResults] = useState(0);
-
+  const [totalResults, setTotalResults] = useState();
   const newsUpdate = async () => {
-    props.setProgress(0);
+    props.SetProgress(0);
     const Url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page}&pageSize=${props.pageSize}`;
     let data = await fetch(Url);
-    props.setProgress(30);
+    props.SetProgress(30);
     let parseData = await data.json();
-    props.setProgress(70);
+    props.SetProgress(70);
     console.log(parseData);
     setArticles(parseData.articles);
     setTotalResults(parseData.totalResults);
 
-    props.setProgress(100);
+    props.SetProgress(100);
+    // data.preventDefault();
   };
-
   useEffect(() => {
+    document.title = `${capitalizeFirstLetter(props.category)} | NewsApp`;
     newsUpdate();
-  });
+  }, []);
 
   const fetchMoreData = async () => {
     setPage(page + 1);
+    const Url = `https://newsapi.org/v2/top-headlines?country=${
+      props.country
+    }&category=${props.category}&apiKey=${props.apiKey}&page=${
+      page + 1
+    }&pageSize=${props.pageSize}`;
 
-    const Url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=5e2c51e03e4d4ab089c9d8286d0f27fa&page=${page+1}&pageSize=${props.pageSize}`;
     let data = await fetch(Url);
     let parseData = await data.json();
-    console.log(parseData);
+    // console.log(parseData);
     setArticles(articles.concat(parseData.articles));
     setTotalResults(parseData.totalResults);
   };
+
   //  const nextbtn = async () => {
   //     setPage(page + 1);
   //     newsUpdate();
@@ -58,7 +62,7 @@ const News = (props) => {
       <InfiniteScroll
         dataLength={articles.length}
         next={fetchMoreData}
-        hasMore={articles.length !== totalResults}
+        hasMore={articles !== totalResults}
         loader={!totalResults && <h4 className="text-center">Loading...</h4>}
       >
         <div className="container">
@@ -95,26 +99,26 @@ const News = (props) => {
         </div>
       </InfiniteScroll>
 
-      <div className="d-flex justify-content-between">
-        {/* <button
+      {/* <div className="d-flex justify-content-between"> */}
+      {/* <button
             disabled={this.state.page <= 1}
             type="button"
             onClick={this.prevbtn}
             className="btn btn-dark"
           >
             &larr; prev
-          </button>
-          <button
-            type="button"
-            disabled={
+          < disabled={
               this.state.page + 1 > Math.ceil(this.state.totalResults / 10)
             }
             onClick={this.nextbtn}
             className="btn btn-dark"
           >
-            Next &rarr;
+            Nex/button>
+          <button
+            type="button"
+           t &rarr;
           </button> */}
-      </div>
+      {/* </div> */}
     </div>
   );
 };

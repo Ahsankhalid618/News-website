@@ -7,7 +7,8 @@ import LoadingBar from "react-top-loading-bar";
 
 const App = () => {
   const pageSize = 20;
-  const apiKey = process.env.REACT_APP_NEWS_API;
+  // const apiKey = "4735eae269c647c18dc24c90c87e3b6e";
+  const apiKey = "0300c04071d24c2db105fed8db108ada";
   const [progress, setProgress] = useState(0);
 
   const setprogress = (progress) => {
@@ -25,7 +26,7 @@ const App = () => {
             path="/"
             element={
               <News
-                setProgress={setprogress}
+                SetProgress={setprogress}
                 apiKey={apiKey}
                 key="general"
                 pageSize={pageSize}
@@ -39,7 +40,7 @@ const App = () => {
             path="/home"
             element={
               <News
-                setProgress={setprogress}
+                SetProgress={setprogress}
                 apiKey={apiKey}
                 key="general"
                 pageSize={pageSize}
@@ -54,7 +55,7 @@ const App = () => {
             path="/business"
             element={
               <News
-                setProgress={setprogress}
+                SetProgress={setprogress}
                 apiKey={apiKey}
                 key="business"
                 pageSize={pageSize}
@@ -68,7 +69,7 @@ const App = () => {
             path="/entertainment"
             element={
               <News
-                setProgress={setprogress}
+                SetProgress={setprogress}
                 apiKey={apiKey}
                 key="entertainment"
                 pageSize={pageSize}
@@ -82,7 +83,7 @@ const App = () => {
             path="/health"
             element={
               <News
-                setProgress={setprogress}
+                SetProgress={setprogress}
                 apiKey={apiKey}
                 key="health"
                 pageSize={pageSize}
@@ -96,7 +97,7 @@ const App = () => {
             path="/science"
             element={
               <News
-                setProgress={setprogress}
+                SetProgress={setprogress}
                 apiKey={apiKey}
                 key="science"
                 pageSize={pageSize}
@@ -110,7 +111,7 @@ const App = () => {
             path="/sports"
             element={
               <News
-                setProgress={setprogress}
+                SetProgress={setprogress}
                 apiKey={apiKey}
                 key="sports"
                 pageSize={pageSize}
@@ -124,7 +125,7 @@ const App = () => {
             path="/technology"
             element={
               <News
-                setProgress={setprogress}
+                SetProgress={setprogress}
                 apiKey={apiKey}
                 key="technology"
                 pageSize={pageSize}
