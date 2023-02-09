@@ -7,7 +7,7 @@ const NavbAr = () => {
       <nav className="navbar navbar-dark bg-dark navbar-expand-lg">
         <div className="container-fluid">
           <Link className="navbar-brand" to="/home">
-            News App
+           News App
           </Link>
           <button
             className="navbar-toggler"
