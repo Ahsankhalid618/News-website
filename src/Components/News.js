@@ -14,7 +14,11 @@ const News = (props) => {
   const newsUpdate = async () => {
     props.SetProgress(0);
     const Url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page}&pageSize=${props.pageSize}`;
-    let data = await fetch(Url);
+    let data = await fetch(Url,{
+headers: {
+"Access-Control-Allow-Origin": "*",
+},
+});
     props.SetProgress(30);
     let parseData = await data.json();
     props.SetProgress(70);
@@ -38,7 +42,11 @@ const News = (props) => {
       page + 1
     }&pageSize=${props.pageSize}`;
 
-    let data = await fetch(Url);
+    let data = await fetch(Url, {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+      },
+    });
     let parseData = await data.json();
     // console.log(parseData);
     setArticles(articles.concat(parseData.articles));
