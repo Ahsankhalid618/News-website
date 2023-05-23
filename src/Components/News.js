@@ -3,6 +3,7 @@ import NewsItem from "./NewsItem";
 import PropTypes from "prop-types";
 import InfiniteScroll from "react-infinite-scroll-component";
 
+const proxyUrl = "https://cors-anywhere.herokuapp.com/";
 const News = (props) => {
   const capitalizeFirstLetter = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -13,12 +14,8 @@ const News = (props) => {
   const [totalResults, setTotalResults] = useState();
   const newsUpdate = async () => {
     props.SetProgress(0);
-    const Url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page}&pageSize=${props.pageSize}`;
-    let data = await fetch(Url,{
-headers: {
-"Access-Control-Allow-Origin": "*",
-},
-});
+    const Url = `${proxyUrl}https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page}&pageSize=${props.pageSize}`;
+    let data = await fetch(Url);
     props.SetProgress(30);
     let parseData = await data.json();
     props.SetProgress(70);
@@ -42,11 +39,7 @@ headers: {
       page + 1
     }&pageSize=${props.pageSize}`;
 
-    let data = await fetch(Url, {
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-      },
-    });
+    let data = await fetch(`${proxyUrl}`Url);
     let parseData = await data.json();
     // console.log(parseData);
     setArticles(articles.concat(parseData.articles));
