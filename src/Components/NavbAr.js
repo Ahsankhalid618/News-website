@@ -44,8 +44,8 @@ const NavbAr = () => {
               </li>
 
               <li className="nav-item">
-                <Link className="nav-link" to="/health">
-                  Health
+                <Link className="nav-link" to="/gaming">
+                  Gaming
                 </Link>
               </li>
               <li className="nav-item">
@@ -54,12 +54,12 @@ const NavbAr = () => {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/sports">
+                <Link className="nav-link" to="/sport">
                   Sports
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/technology">
+                <Link className="nav-link" to="/tech">
                   Technology
                 </Link>
               </li>

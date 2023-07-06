@@ -8,7 +8,7 @@ import LoadingBar from "react-top-loading-bar";
 const App = () => {
   const pageSize = 20;
   // const apiKey = "4735eae269c647c18dc24c90c87e3b6e";
-  const apiKey = "0300c04071d24c2db105fed8db108ada";
+ 
   const [progress, setProgress] = useState(0);
 
   const setprogress = (progress) => {
@@ -23,15 +23,15 @@ const App = () => {
         <Routes>
           <Route
             exact
-            path="/"
+            path="/home"
             element={
               <News
                 SetProgress={setprogress}
-                apiKey={apiKey}
+            
                 key="general"
                 pageSize={pageSize}
-                country="in"
-                category="general"
+                country="us"
+                category="news"
               />
             }
           />
@@ -41,11 +41,10 @@ const App = () => {
             element={
               <News
                 SetProgress={setprogress}
-                apiKey={apiKey}
-                key="general"
+                key="world"
                 pageSize={pageSize}
-                country="in"
-                category="general"
+                country="us"
+                category="world"
               />
             }
           />
@@ -56,10 +55,9 @@ const App = () => {
             element={
               <News
                 SetProgress={setprogress}
-                apiKey={apiKey}
                 key="business"
                 pageSize={pageSize}
-                country="in"
+                country="us"
                 category="business"
               />
             }
@@ -70,25 +68,25 @@ const App = () => {
             element={
               <News
                 SetProgress={setprogress}
-                apiKey={apiKey}
+               
                 key="entertainment"
                 pageSize={pageSize}
-                country="in"
+                country="us"
                 category="entertainment"
               />
             }
           />
           <Route
             exact
-            path="/health"
+            path="/gaming"
             element={
               <News
                 SetProgress={setprogress}
-                apiKey={apiKey}
-                key="health"
+               
+                key="gaming"
                 pageSize={pageSize}
-                country="in"
-                category="health"
+                country="us"
+                category="gaming"
               />
             }
           />
@@ -98,39 +96,39 @@ const App = () => {
             element={
               <News
                 SetProgress={setprogress}
-                apiKey={apiKey}
+               
                 key="science"
                 pageSize={pageSize}
-                country="in"
+                country="us"
                 category="science"
               />
             }
           />
           <Route
             exact
-            path="/sports"
+            path="/sport"
             element={
               <News
                 SetProgress={setprogress}
-                apiKey={apiKey}
-                key="sports"
+              
+                key="sport"
                 pageSize={pageSize}
-                country="in"
-                category="sports"
+                country="us"
+                category="sport"
               />
             }
           />
           <Route
             exact
-            path="/technology"
+            path="/tech"
             element={
               <News
                 SetProgress={setprogress}
-                apiKey={apiKey}
-                key="technology"
+               
+                key="tech"
                 pageSize={pageSize}
-                country="in"
-                category="technology"
+                country="us"
+                category="tech"
               />
             }
           />
