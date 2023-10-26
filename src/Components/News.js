@@ -16,7 +16,7 @@ const News = (props) => {
     const Url = `https://api.newscatcherapi.com/v2/latest_headlines?countries=${props.country}&topic=${props.category}&page=${page}&page_size=${props.pageSize}`;
     let data = await fetch(Url, {
       headers: {
-        "x-api-key": "CnMiGYHbbKsokR4vwrVUgCnJF9ko1a0nrH_hFCc8bs0",
+        "x-api-key": "4ZgiWTrWUXc196c4vNxFgMMu6WabNm6az2MgB41Fq5KJ",
       },
     });
     
